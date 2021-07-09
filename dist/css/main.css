@@ -1,0 +1,10 @@
+#search_td:hover {
+    border-radius: 8px;
+    background-color: rgb(233, 227, 227);
+}
+#search_row:hover {
+    background-color: rgb(214, 211, 211);
+}
+#search_link:hover {
+    text-decoration: underline;
+}
