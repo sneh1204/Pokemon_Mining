@@ -24,8 +24,8 @@ include_once "simple_html_dom.php";
 	<section class="wrapper">
 <?php
 $search_keyword=str_replace(' ','+',$_GET['pid']);
-$newhtml =file_get_html("https://www.google.com/search?q=".$search_keyword."&tbm=isch");
-$result_image_source = $newhtml->find('img', 0)->src;
+$newhtml = file_get_html("https://www.google.com/search?q=" . $search_keyword . "&tbm=isch");
+$result_image_source = $newhtml->find('img', 1)->src;
 ?>
 <div class="col-md-12">
         <div class="notifications">

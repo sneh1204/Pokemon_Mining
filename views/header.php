@@ -39,13 +39,13 @@
                     search: searchid
                 },
                 cache: false,
-                success: function(result){
-                    if(result != 0){
+                success: function (result) {
+                    if (result != 0) {
                         var output = $.parseJSON(result); // output[0].Name
-                        var html="";
-                        for(var index=0; index<output.length; index++){
+                        var html = "";
+                        for (var index = 0; index < output.length; index++) {
                             var tmp = output[index].Name;
-                            html = html + "<tr><td id='search_td' style='height: 45px;text-decoration:none;display:block;width: 190px; padding-top: 10px; padding-left: 8px;'><a href='<?=BASE?>pokemon/"+tmp.replace(new RegExp(' ', 'g'), '_')+"' id='searchme' style='display: flex;text-decoration: none;'>"+searchid+"<b>"+output[index].Name.substr(searchid.length)+"</b></a></td></tr>";
+                            html = html + "<tr><td id='search_td' style='height: 45px;text-decoration:none;display:block;width: 190px; padding-top: 10px; padding-left: 8px;'><a href='<?=BASE?>pokemon/pokemon.php?pid=" + tmp.replace(new RegExp(' ', 'g'), '_') + "' id='searchme' style='display: flex;text-decoration: none;'>" + searchid + "<b>" + output[index].Name.substr(searchid.length) + "</b></a></td></tr>";
                         }
                         $("#searchdrop").html(html);
                     }
@@ -53,7 +53,7 @@
             });
         }
     });
-    $(document).mouseup(function(e){
+    $(document).mouseup(function (e) {
         var container = $("#search_div");
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             $("#searchdrop").html("");

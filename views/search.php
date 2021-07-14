@@ -38,10 +38,10 @@ include_once "../pokemon/simple_html_dom.php";
                         if(!empty($values)){
                             echo "- Showing <b>" . $totcount . "</b> results for '<b>$searchid</b>':";
                             foreach($values as $id => $data){
-                                $search_keyword=str_replace(' ','+',$data['Name']);
-                                $newhtml =file_get_html("https://www.google.com/search?q=".$search_keyword."&tbm=isch");
-                                $result_image_source = $newhtml->find('img', 0)->src;
-                                echo '<tr data-href="'.BASE.'pokemon/'.str_replace(' ', '_', $data['Name']).'" class="clickable-row" id="search_row" style="width:100%; height:110px;"><td style="width:100px;"><a href="'.BASE.'pokemon/'.str_replace(' ', '_', $data['Name']).'"><img style="padding-left: 10px; height: 90px; width: 90px;" src="'.$result_image_source.'"/></a></td><td style="padding-top:7px;vertical-align:top;"><a id="search_link" style="display: flex;" href="'.BASE.'pokemon/'.str_replace(' ', '_', $data['Name']).'"><h4>'.$data['Name'].'</h4></a>'.PHP_EOL.'<p style="font-size: 13px;">Total: <strong>'.$data['Total'].'</strong></p>'.PHP_EOL.'<p style="font-size: 13px;">Type: <strong>'.$data['Type 1'].'</strong></p>'.PHP_EOL.'<p style="font-size: 13px;">Generation: <strong>'.$data['Generation'].'</strong></p>'.PHP_EOL.'<p style="font-size: 13px;">Legendary: <strong>'.$data['Legendary'].'</strong></td></tr>';
+                                $search_keyword = str_replace(' ', '+', $data['Name']);
+                                $newhtml = file_get_html("https://www.google.com/search?q=" . $search_keyword . "&tbm=isch");
+                                $result_image_source = $newhtml->find('img', 1)->src;
+                                echo '<tr data-href="' . BASE . 'pokemon/pokemon.php?pid=' . str_replace(' ', '_', $data['Name']) . '" class="clickable-row" id="search_row" style="width:100%; height:110px;"><td style="width:100px;"><a href="' . BASE . 'pokemon/pokemon.php?pid=' . str_replace(' ', '_', $data['Name']) . '"><img style="padding-left: 10px; height: 90px; width: 90px;" src="' . $result_image_source . '"/></a></td><td style="padding-top:7px;vertical-align:top;"><a id="search_link" style="display: flex;" href="' . BASE . 'pokemon/pokemon.php?pid=' . str_replace(' ', '_', $data['Name']) . '"><h4>' . $data['Name'] . '</h4></a>' . PHP_EOL . '<p style="font-size: 13px;">Total: <strong>' . $data['Total'] . '</strong></p>' . PHP_EOL . '<p style="font-size: 13px;">Type: <strong>' . $data['Type 1'] . '</strong></p>' . PHP_EOL . '<p style="font-size: 13px;">Generation: <strong>' . $data['Generation'] . '</strong></p>' . PHP_EOL . '<p style="font-size: 13px;">Legendary: <strong>' . $data['Legendary'] . '</strong></td></tr>';
                             }
                         }else{
                             echo "Your search showed up no results.";

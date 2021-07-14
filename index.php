@@ -9,5 +9,5 @@ include_once "database/Mysql.php";
 if(!isset($_SESSION['loggedin']))    include_once "views/login.php";
 else    redirect(CTRL . "Ctrl_dashboard.php");
 */
-redirect(CTRL . "Pokebot.php");
+redirect(CTRL . "Ctrl_dashboard.php");
 ?>

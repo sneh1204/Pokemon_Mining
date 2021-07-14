@@ -1,13 +1,15 @@
 <?php
-class Mysql{
+class Mysql
+{
 
     private $db = "localhost";
     private $username = "root";
-    private $password = "asd_1234"; // 'asd_1234' for fallentech.tk
+    private $password = ""; // 'asd_1234' for fallentech.tk
     private $dbname = "mining";
     private $conn = null;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->conn = null;
         try {
             $this->conn = new PDO("mysql:host={$this->db};dbname={$this->dbname}", $this->username, $this->password, null);
